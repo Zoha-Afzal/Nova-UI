@@ -1,14 +1,12 @@
+import ButtonGradient from "./assets/svg/ButtonGradient";
 
-import './App.css'
-
-function App() {
- 
-
+const App = () => {
   return (
-  <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-)
-}
-    
-export default App
+    <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+      <buttonGradient />
+    </>
+  );
+};
+
+export default App;
