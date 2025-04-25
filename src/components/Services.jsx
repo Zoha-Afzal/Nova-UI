@@ -4,6 +4,12 @@ import { service1, service2, service3 } from "../assets";
 import { brainwaveServices, brainwaveServicesIcons } from "../constants";
 import check from "../assets/check.svg";
 import Generating from "./Generating";
+import {
+  PhotoChatMessage,
+  Gradient,
+  VideoBar,
+  VideoChatMessage,
+} from "./design/Services";
 
 const Services = () => {
   return (
@@ -45,8 +51,71 @@ const Services = () => {
             <Generating className="absolute bottom-4 left-4 right-4 border border-n-1/10 lg:bottom-8 lg:left-1/2 lg:right-auto lg:-translate-x-1/2" />
           </div>
           <div className="relative z-1 grid gap-5 lg:grid-cols-2">
-            <div className="relative min-h-[39rem] overflow-hidden rounded-3xl border border-n-1/10"></div>
+            <div className="relative min-h-[39rem] overflow-hidden rounded-3xl border border-n-1/10">
+              <div className="absolute inset-0">
+                <img
+                  src={service2}
+                  className="h-full w-full object-cover"
+                  width={630}
+                  height={750}
+                  alt="robot"
+                />
+              </div>
+              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-b from-n-8/0 to-n-8/90 p-8 lg:p-15">
+                <h4 className="h4 mb-4">Photo editing</h4>
+                <p className="body-2 mb-[3rem] text-n-3">
+                  Automaticaly enchance your photos using our AI app&apos;s
+                  photo editing feature.try it now!
+                </p>
+              </div>
+
+              <PhotoChatMessage />
+            </div>
+            <div className="overflow-hiden rounded-3xl bg-n-7 p-4 lg:min-h-[46rem]">
+              <div className="px-4 py-12 xl:px-8">
+                <h4 className="h4 mb-4">Video Generation</h4>
+                <p className="body-2 mb-[2rem] text-n-3">
+                  The world’s most powerful AI photo and video art generation
+                  engine. What will you create?
+                </p>
+                <ul className="item-center flex justify-between">
+                  {brainwaveServicesIcons.map((item, index) => (
+                    <li
+                      key={index}
+                      className={`flex items-center justify-center rounded-2xl ${
+                        index === 2
+                          ? "h-[3rem] w-[3rem] bg-conic-gradient p-0.25 md:h-[4.5rem] md:w-[4.5rem]"
+                          : "flex h-10 w-10 bg-n-6 md:h-15 md:w-15"
+                      }`}
+                    >
+                      <div
+                        className={
+                          index === 2
+                            ? "item-center flex h-full w-full justify-center rounded-[1rem] bg-n-7"
+                            : ""
+                        }
+                      >
+                        <img src={item} width={24} height={24} alt={item} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="overflow-hiden relative h-[20rem] rounded-xl bg-n-8 md:h-[25rem]">
+                <img
+                  src={service3}
+                  className="h-full w-full object-cover"
+                  width={520}
+                  height={400}
+                  alt="Scary robot"
+                />
+
+                <VideoChatMessage />
+                <VideoBar />
+              </div>
+            </div>
           </div>
+          <Gradient />
         </div>
       </div>
     </Section>
